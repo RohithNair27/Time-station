@@ -1,0 +1,27 @@
+.navBar-body {
+  width: 15%;
+  background-color: #ed1515;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 3%;
+}
+.user-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.navBar-user-info {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.navBar-body div {
+  border: 1px black solid;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  color: white;
+}
