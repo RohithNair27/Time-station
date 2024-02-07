@@ -1,0 +1,34 @@
+.table-container {
+  width: 80%;
+  height: 40%;
+}
+.table-container table {
+  height: 100%;
+}
+.tableheader {
+  border: 1px solid black;
+}
+.table {
+  border: 1px black solid;
+}
+.tableheader {
+  /* border: 1px black solid; */
+  background-color: #f6f7f9;
+  height: 40px;
+}
+
+.pagination {
+  position: relative;
+  top: 2%;
+  left: 60%;
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 1px black solid; */
+  list-style-type: none;
+}
+.activePageNumber {
+  border: 1px red solid;
+  width: 20px;
+  height: 20px;
+}

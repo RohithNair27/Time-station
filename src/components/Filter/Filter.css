@@ -3,7 +3,7 @@
   width: 70vw;
   height: 20%;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: space-evenly;
 }
@@ -13,6 +13,7 @@
   display: flex;
   width: 90%;
   height: 60%;
+  /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
 }
@@ -26,10 +27,31 @@
   flex-direction: column;
 }
 .Apply-button {
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  height: 40%;
+
   background-color: #ed1515;
   color: white;
   border-radius: 5px;
+}
+.search-bar {
+  width: 250px;
+  padding-left: 10px;
+  height: 30px;
+}
+#cars {
+  width: 100%;
+  height: 30px;
+  border: none;
+}
+.filter-radio-container {
+  border: 1px black solid;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* justify-content: center; */
 }

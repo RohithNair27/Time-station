@@ -58,3 +58,19 @@
 .login-submit:hover {
   background-color: #f01212;
 }
+/* .login-input:focus {
+  border: none;
+} */
+@media only screen and (max-width: 850px) {
+  .Workingimage {
+    width: 0;
+  }
+  .login-container {
+    width: 350px;
+  }
+  .login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

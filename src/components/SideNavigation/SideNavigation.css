@@ -1,27 +1,82 @@
 .navBar-body {
-  width: 15%;
+  width: 250px;
   background-color: #ed1515;
+  height: 82%;
+  position: fixed;
+  left: 0;
+  top: 13%;
+  padding-top: 3%;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+.navBar-body-closed {
+  width: 0px;
+  height: 82%;
+  position: fixed;
+  left: 0;
+  top: 13%;
+  transition: 0.5s;
+}
+.button {
+  position: absolute;
+  left: 90%;
+  top: 0;
+  background-color: #ac1111;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  padding-top: 3%;
+  justify-content: center;
+  color: white;
+  transition: 0.5s;
+}
+.button_closed {
+  position: absolute;
+  left: 0px;
+  background-color: #ac1111;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.5s;
+}
+.navBar-navLinks {
+  position: relative;
+  top: 5%;
+  /* border: 1px black solid; */
+  height: 100%;
 }
 .user-image {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 70%;
+  width: 80px;
+  height: 80px;
 }
 .navBar-user-info {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
 }
-.navBar-body div {
-  border: 1px black solid;
+.user-data {
+  display: flex;
+  flex-direction: column;
+}
+.navBar-navLinks div {
+  /* border: 1px black solid; */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 10%;
+  height: 60px;
+  margin-top: 10px;
   color: white;
+}
+.navBar-body div:hover {
+  cursor: pointer;
+  background-color: #ac1111;
 }

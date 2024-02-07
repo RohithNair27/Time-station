@@ -1,0 +1,33 @@
+.setting-container {
+  /* border: 1px black solid; */
+  height: 85vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+.setting-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px #f15252 solid;
+  padding: 2px;
+}
+.setting-submit {
+  background-color: #ed1515;
+  width: 25%;
+  height: 8%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.change-password-header {
+  font-size: 40px;
+  font-weight: 500;
+}
+.setting-input {
+  width: 25%;
+  height: 8%;
+  padding-left: 5px;
+}

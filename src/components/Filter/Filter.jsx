@@ -1,43 +1,40 @@
 import React from "react";
 import "./Filter.css";
+import { FaSearch } from "react-icons/fa";
 function Filter() {
   return (
     <div className="Filter-container">
       <div className="Filter-inside-container">
-        <section className="radiobutton-container">
-          <span>View By</span>
-          <section>
-            <input type="radio" id="huey" name="drone" value="huey" checked />
-            <label for="huey">In office </label>
-            <input type="radio" id="dewey" name="drone" value="dewey" />
-            <label for="dewey">Out of office</label>
-          </section>
-        </section>
+        <section className="filter-radio-container">
+          {/* <input type="radio" id="huey" name="drone" value="huey" checked />
+          <label for="huey">In office </label>
 
-        <section className="Date-body">
-          <span>Start Date</span>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
-          />
+          <input type="radio" id="dewey" name="drone" value="dewey" />
+          <label for="dewey">Out of office</label> */}
+
+          <select name="cars" id="cars">
+            <option value="volvo">All employee</option>
+            <option value="saab">In office</option>
+            <option value="mercedes">Out of office</option>
+            {/* <option value="audi">Audi</option> */}
+          </select>
         </section>
         <section className="Date-body">
-          <span>End Date</span>
+          <label for="fname"></label>
           <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
+            type="text"
+            id="fname"
+            name="fname"
+            className="search-bar"
+            placeholder="search"
           />
         </section>
 
-        <div className="Apply-button">Apply</div>
+        <div className="Apply-button">
+          <FaSearch color="white" />
+        </div>
+
+        <div className="Apply-button">Reset</div>
       </div>
     </div>
   );
