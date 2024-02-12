@@ -16,11 +16,13 @@ function Table() {
   return (
     <div className="table-container">
       <table className="table">
-        <tr className="tableheader">
-          {tableHeader.map((element) => {
-            return <th>{element}</th>;
-          })}
-        </tr>
+        <thead>
+          <tr className="tableheader">
+            {tableHeader.map((element) => {
+              return <th>{element}</th>;
+            })}
+          </tr>
+        </thead>
         {tableData
           .slice(users_in_page, users_in_page + elements_in_page)
           .map((element) => {

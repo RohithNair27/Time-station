@@ -1,7 +1,6 @@
 import React from "react";
 import "./Setting.css";
 import face from "../../Assets/Images/personImage1.jpg";
-import ImageUploader from "react-images-upload";
 function Settings() {
   return (
     <div className="setting-container">

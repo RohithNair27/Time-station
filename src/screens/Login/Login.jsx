@@ -1,18 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import "./Login.css";
 import workingImage from "../../Assets/Images/Working.png";
 import mindsprint from "../../Assets/Images/mindsprint-logo.svg";
+import {
+  APP_NAME,
+  ENTER_YOUR_ID_AND_PASSWORD,
+} from "../../constants/PortalUiConstant";
+import { useDispatch } from "react-redux";
+import { setLoggedIn } from "../../Redux/Signup/SignupAction";
+import {
+  storeAccessTokenInLocal,
+  checkAcessTokenInLocal,
+} from "../../utils/Authentication";
+import { SHOW_HIDE_LOADER_ACTION } from "../../Redux/Common/CommonAction";
 function Login() {
+  const [userName, setUserNamee] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const dispatch = useDispatch();
+
+  const data = {
+    username: userName,
+    password: userPassword,
+  };
+
+  const onPressLogin = async () => {
+    dispatch(SHOW_HIDE_LOADER_ACTION(true));
+    const response = await fetch("http://localhost:8080/api/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    return response.json();
+  };
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    const AuthData = await onPressLogin();
+    console.log(AuthData.status);
+    const token = checkAcessTokenInLocal();
+    if (token === null) {
+      storeAccessTokenInLocal(AuthData.accessToken);
+      dispatch(setLoggedIn(true));
+      navigate("/home");
+    }
+
+    dispatch(SHOW_HIDE_LOADER_ACTION(false));
+  };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const data = sessionStorage.getItem("AccessToken");
+    console.log(data);
+    if (data !== null) {
+      console.log("here down");
+      dispatch(setLoggedIn(true));
+      navigate("/home");
+    }
+  }, []);
+
   return (
     <div className="login-body">
       <div className="login-container">
-        {/* <span className="login-header">Login</span> */}
         <section className="login-header">
           <img src={mindsprint} />
-          <span>Time station</span>
+          <span>{APP_NAME}</span>
         </section>
-        <span className="login-header-two">Enter your ID and password</span>
-        <section className="login-form">
+        <span className="login-header-two">{ENTER_YOUR_ID_AND_PASSWORD}</span>
+        <form className="login-form">
           <label for="fname"></label>
           <input
             type="text"
@@ -20,6 +79,7 @@ function Login() {
             name="fname"
             className="login-input"
             placeholder="Enter id"
+            onChange={(event) => setUserNamee(event.target.value)}
           ></input>
           <label for="fname"></label>
           <input
@@ -28,9 +88,12 @@ function Login() {
             name="fname"
             className="login-input"
             placeholder="Enter password"
+            onChange={(event) => setUserPassword(event.target.value)}
           ></input>
-          <div className="login-submit">Sign in</div>
-        </section>
+          <button className="login-submit" onClick={(event) => onSubmit(event)}>
+            Sign in
+          </button>
+        </form>
       </div>
       <img src={workingImage} className="Workingimage" />
     </div>

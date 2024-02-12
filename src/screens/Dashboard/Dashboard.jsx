@@ -2,7 +2,11 @@ import React from "react";
 import "./Dashboard.css";
 import BarGraphs from "../../components/BarGraphs/BarGraphs";
 import Table from "../../components/Table/Table";
+import { useSelector } from "react-redux";
+import SignupReducer from "../../Redux/Signup/SignupReducer";
 function Dashboard() {
+  // const { USER_NAME } = useSelector((state) => state.SignupReducer);
+  // console.log("data", USER_NAME);
   return (
     <>
       <div className="Dashboard-container">

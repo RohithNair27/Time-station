@@ -1,0 +1,10 @@
+.Adduser-container {
+  border: 1px black solid;
+  position: relative;
+  width: 85%;
+  height: 87%;
+  left: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
