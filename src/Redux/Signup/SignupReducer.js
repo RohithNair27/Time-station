@@ -1,10 +1,8 @@
 import { ACTION_TYPES } from "../ActionTypes";
 
-const { SET_USER_ID, SET_USER_ROLE, SET_USER_NAME, SET_IS_LOGGED_IN } =
-  ACTION_TYPES;
+const { SET_USER_ID, SET_USER_ROLE, SET_USER_NAME } = ACTION_TYPES;
 
 const initalState = {
-  IS_LOGGED_IN: false,
   USER_NAME: null,
   USER_ID: null,
   USER_ROLE: null,
@@ -27,11 +25,7 @@ function SignupReducer(state = initalState, action) {
         ...state,
         USER_NAME: action.payload,
       };
-    case SET_IS_LOGGED_IN:
-      return {
-        ...state,
-        IS_LOGGED_IN: action.payload,
-      };
+
     default: {
       return state;
     }

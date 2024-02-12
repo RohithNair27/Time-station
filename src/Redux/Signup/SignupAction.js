@@ -1,14 +1,6 @@
 import { ACTION_TYPES } from "../ActionTypes";
 
-const { SET_USER_ID, SET_USER_ROLE, SET_USER_NAME, SET_IS_LOGGED_IN } =
-  ACTION_TYPES;
-
-export function setLoggedIn(bool) {
-  return {
-    type: SET_IS_LOGGED_IN,
-    payload: bool,
-  };
-}
+const { SET_USER_ID, SET_USER_ROLE, SET_USER_NAME } = ACTION_TYPES;
 
 export function setUserName(USER_NAME) {
   return {

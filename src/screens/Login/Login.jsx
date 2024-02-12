@@ -8,7 +8,7 @@ import {
   ENTER_YOUR_ID_AND_PASSWORD,
 } from "../../constants/PortalUiConstant";
 import { useDispatch } from "react-redux";
-import { setLoggedIn } from "../../Redux/Signup/SignupAction";
+
 import {
   storeAccessTokenInLocal,
   checkAcessTokenInLocal,
@@ -39,14 +39,13 @@ function Login() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
     const AuthData = await onPressLogin();
-    console.log(AuthData.status);
+
     const token = checkAcessTokenInLocal();
-    if (token === null) {
+    if (token === null && AuthData.accessToken) {
       storeAccessTokenInLocal(AuthData.accessToken);
-      dispatch(setLoggedIn(true));
-      navigate("/home");
+
+      navigate("/Home");
     }
 
     dispatch(SHOW_HIDE_LOADER_ACTION(false));
@@ -54,12 +53,11 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const data = sessionStorage.getItem("AccessToken");
-    console.log(data);
-    if (data !== null) {
-      console.log("here down");
-      dispatch(setLoggedIn(true));
-      navigate("/home");
+    if (
+      sessionStorage.getItem("loggedIn") &&
+      checkAcessTokenInLocal() !== (null || undefined)
+    ) {
+      navigate("/Home");
     }
   }, []);
 
